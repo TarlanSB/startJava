@@ -81,7 +81,7 @@ public class VariablesTheme {
         number2 -= number1;
         number1 += number2;
 
-        System.out.println("новые значения переменных number1 и data2 соответственно: " 
+        System.out.println("новые значения переменных number1 и number2 соответственно: " 
                 + number1 + " " + number2
                 + "\n\nПерестановка значений с помощью побитовой операции ^:"
                 + "\nисходные значения переменных number1 и number2 соответственно: " 
@@ -146,4 +146,4 @@ public class VariablesTheme {
 
         System.out.println("\n" + hours + ":" + minutes + ":" + seconds);
     }
-}t
+}
