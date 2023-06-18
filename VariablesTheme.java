@@ -21,18 +21,17 @@ public class VariablesTheme {
                 + socketNumbers + " - socketNumbers\n"
                 + isWindows + " - система Windows");
 
-
         System.out.println("\n\n2.Расчёт стоимости товара со скидкой");
      
         int penCost = 100;
         int bookCost = 200;
         int discount = 11;
         int sumWithoutDiscount = penCost + bookCost;
-        double discountSum = (penCost + bookCost) * 11 / 100;
+        double discountPrice = (penCost + bookCost) * 11 / 100;
 
         System.out.println("\nОбщая стоимость товара без скидки: " + sumWithoutDiscount
-                + "\nСумма скидки: " + discountSum
-                + "\nОбщая стоимость товаров со скидкой: " + (sumWithoutDiscount - discountSum));
+                + "\nСумма скидки: " + discountPrice
+                + "\nОбщая стоимость товаров со скидкой: " + (sumWithoutDiscount - discountPrice));
 
         System.out.println("\n\n3.Вывод слова JAVA\n"
                 + "   J    a  v     v  a\n"
@@ -61,84 +60,90 @@ public class VariablesTheme {
                 +"\nЗначение long после декремента: " + (--longMaxValue));
 
         System.out.println("\n\n5.Перестановка значений переменных");
-        int data1 = 2;
-        int data2 = 5;
+        int number1 = 2;
+        int number2 = 5;
 
         System.out.println("\nПерестановка значений с помощью третьей переменной:"
-                + "\nисходные значения переменных data1 и data2 соответственно: " + data1 + " "+ data2); 
+                + "\nисходные значения переменных number1 и number2 соответственно: " 
+                + number1 + " "+ number2); 
 
-        int data3 = data1;
-        data1 = data2;
-        data2 = data3;
+        int tmp = number1;
+        number1 = number2;
+        number2 = tmp;
 
-        System.out.println("новые значения переменных data1 и data2 соответственно: " + data1 + " " + data2
+        System.out.println("новые значения переменных number1 и number2 соответственно: " 
+                + number1 + " " + number2
                 + "\n\nПерестановка значений с помощью арифметических операций:"
-                + "\nисходные значения переменных data1 и data2 соответственно: " + data1 + " "+ data2); 
+                + "\nисходные значения переменных number1 и number2 соответственно: " 
+                + number1 + " "+ number2); 
 
-        data1 = data2- data1;
-        data2 = data2 - data1;
-        data1 += data2;
+        number1 = number2 - number1;
+        number2 -= number1;
+        number1 += number2;
 
-        System.out.println("новые значения переменных data1 и data2 соответственно: " + data1 + " " + data2
+        System.out.println("новые значения переменных number1 и data2 соответственно: " 
+                + number1 + " " + number2
                 + "\n\nПерестановка значений с помощью побитовой операции ^:"
-                + "\nисходные значения переменных data1 и data2 соответственно: " + data1 + " "+ data2); 
+                + "\nисходные значения переменных number1 и number2 соответственно: " 
+                + number1 + " "+ number2); 
 
-        data1 ^= data2;
-        data2 ^= data1;
-        data1 ^= data2;
+        number1 ^= number2;
+        number2 ^= number1;
+        number1 ^= number2;
 
-        System.out.println("новые значения переменных data1 и data2 соответственно: " + data1 + " " + data2);
+        System.out.println("новые значения переменных number1 и number2 соответственно: " 
+                + number1 + " " + number2);
 
         System.out.println("\n\n6.Вывод символов и их кодов");
 
-        char symbol35 = 35;
-        char symbol38 = 38;
-        char symbol64 = 64;
-        char symbol94 = 94;
-        char symbol95 = 95;
+        char symbolNumber = '#';
+        char ampersand = '&';
+        char atSign = '@';
+        char caret = '^';
+        char underscore = '_';
 
-        System.out.println("\nКод символа : соответствующий коду символ из ASCII:"
-                + "\n\n" + (int)symbol35 + " : " + symbol35
-                + "\n" + (int)symbol38 + " : " + symbol38
-                + "\n" +  (int)symbol64 + " : " + symbol64
-                + "\n" + (int)symbol94 + " : " + symbol94
-                + "\n" + (int)symbol95 + " : " + symbol95);
+        System.out.println("\nКод символа : соответствующий коду символ из ASCII:\n\n" 
+                + (int) symbolNumber + " : " + symbolNumber + "\n" 
+                + (int) ampersand + " : " + ampersand + "\n" 
+                + (int) atSign + " : " + atSign + "\n" 
+                + (int) caret + " : " + caret + "\n" 
+                + (int) underscore + " : " + underscore);
 
         System.out.println("\n\n7.Вывод в консоль ASCII-арт Дюка");
 
-        char forwardSlash = 47;
-        char backwardSlash = 92;
-        char underscore = 95;
-        char openBracket = 40;
-        char closeBracket = 41;
+        char slash = '/';
+        char backSlash = '\\';
+        char openBracket = '(';
+        char closeBracket = ')';
     
-        System.out.println("\n    "+ forwardSlash + backwardSlash
-                + "\n   " + forwardSlash + "  " + backwardSlash
-                + "\n  " + forwardSlash + underscore + openBracket + " " + closeBracket + backwardSlash
-                + "\n " + forwardSlash + "      " + backwardSlash
-                + "\n" + forwardSlash + underscore + underscore + underscore + underscore + forwardSlash + backwardSlash+ underscore + underscore  + backwardSlash);
+        System.out.println("\n    "+ slash + backSlash + "\n   " 
+                + slash + "  " + backSlash + "\n  " 
+                + slash + underscore + openBracket + " " + closeBracket + backSlash + "\n " 
+                + slash + "      " + backSlash + "\n" 
+                + slash + underscore + underscore + underscore + underscore + slash + backSlash 
+                + underscore + underscore + backSlash);
 
         System.out.println("\n\n8.Вывод количества сотен, десятков и единиц числа");
 
         int number = 123;
-        int unitsNumber = number % 10;
-        int tensNumber = number / 10 % 10;
-        int hundredsNumber = number / 100;
+        int ones = number % 10;
+        int tens = number / 10 % 10;
+        int hundreds = number / 100;
 
-        System.out.println("\nЧисло " + number + " сордержит:\n"
-                + unitsNumber + " единиц\n"
-                + tensNumber + " десятков\n"
-                + hundredsNumber + " сотен"
-                + "\nсумма его цифр: " + (unitsNumber + tensNumber + hundredsNumber)
-                + "\nпроизведение: " + (unitsNumber * tensNumber * hundredsNumber));
+        System.out.println("\nЧисло " + number + " содержит:\n"
+                + ones + " единиц\n"
+                + tens + " десятков\n"
+                + hundreds + " сотен"
+                + "\nсумма его цифр: " + (ones + tens + hundreds)
+                + "\nпроизведение: " + (ones * tens * hundreds));
 
         System.out.println("\n\n9.Вывод времени");
 
         int totalSeconds = 86399;
         int hours = totalSeconds / 3600;
-        int minutes = totalSeconds % 3600 / 60;
-        int seconds = totalSeconds % 3600 % 60;
+        int minutes = totalSeconds / 60 % 60;
+        int seconds = totalSeconds % 60;
 
         System.out.println("\n" + hours + ":" + minutes + ":" + seconds);
     }
-}
+}t
