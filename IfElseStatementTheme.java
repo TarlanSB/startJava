@@ -4,9 +4,6 @@ public class IfElseStatementTheme {
         System.out.println("1.Перевод псевдокода на язык Java\n");
 
         int age = 3;
-        String sex = "Male";
-        double hight = 1.8;
-        String name = "Peter";
 
         if (age > 20) {
             System.out.println("Возраст больше 20 лет и составляет " + age);
@@ -14,17 +11,23 @@ public class IfElseStatementTheme {
             System.out.println("Возраст меньше или равен 20 лет");
         }
 
+        String sex = "Male";
+
         if (!sex.equals("Male")) {
             System.out.println("Пол - женский");
         } else {
             System.out.println("Пол мужской");
         }
 
+        double hight = 1.8;
+
         if (hight < 1.8) {
             System.out.println("Рост меньше 1.8 м");
         } else {
             System.out.println("Рост равен или больше 1.8 м");
         }
+
+        String name = "Peter";
 
         if (name.charAt(0) == 'M') {
             System.out.println("Имя начинается на букву \"М\"");
@@ -119,10 +122,7 @@ public class IfElseStatementTheme {
         System.out.println("\n\n7.Определение оценки по предметам\n");
 
         int historyGrade = 59;
-        int programmingGrade = 91;
         int historyMark = 2;
-        int programmingMark = 2;
-
 
         if (historyGrade > 60 && historyGrade <= 73) {
             historyMark = 3;
@@ -131,7 +131,10 @@ public class IfElseStatementTheme {
         } else {
             historyMark = 5;
         }
-        
+
+        int programmingGrade = 91;
+        int programmingMark = 2;
+
         if (programmingGrade > 60 && programmingGrade <= 73) {
             programmingMark = 3;
         } else if (programmingGrade > 73 && programmingGrade <= 91) {
