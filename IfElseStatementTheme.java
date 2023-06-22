@@ -1,12 +1,12 @@
 public class IfElseStatementTheme {
 
     public static void main(String[] args) {
+        System.out.println("1.Перевод псевдокода на язык Java\n");
+
         int age = 3;
         String sex = "Male";
         double hight = 1.8;
         String name = "Peter";
-
-        System.out.println("1.Перевод псевдокода на язык Java\n");
 
         if (age > 20) {
             System.out.println("Возраст больше 20 лет и составляет " + age);
@@ -39,9 +39,9 @@ public class IfElseStatementTheme {
         int num1 = 20;
         int num2 = 25;
 
-        if (num1 - num2 > 0) {
+        if (num1 > num2) {
             System.out.println("Первое число больше второго.");
-        } else if (num1 - num2 < 0) {
+        } else if (num1 < num2) {
             System.out.println("Второе число больше первого.");
         } else {
             System.out.println("Числа равны.");
@@ -51,21 +51,14 @@ public class IfElseStatementTheme {
 
         int num5 = 5;
 
+        String evenOrOdd = num5 % 2 == 0 ? " четное " : " нечетное"; 
+        String positiveOrNegative = num5 > 0 ? " - положительное" : " - отрицательное";
+
         if (num5 == 0) {
-            System.out.println("Число является нулем");
-        } else if (num5 > 0) {
-            if (num5 % 2 == 0) {
-                System.out.println(num5 + " - положительное четное число ");
-            } else {
-                System.out.println(num5 + " - положительное нечетное число ");
-            }
+            System.out.println("Число является" + num5);
         } else {
-            if (num5 % 2 > 0) {
-                System.out.println(num5 + " - отрицательное четное число ");
-            } else {
-                System.out.println(num5 + " - отрицательное нечетное число ");
-            }
-        }
+            System.out.println(num5 + positiveOrNegative + evenOrOdd + " число");
+        } 
 
         System.out.println("\n\n4.Поиск одинаковых цифр в числах\n");
 
@@ -74,24 +67,22 @@ public class IfElseStatementTheme {
 
         System.out.println("Исходные числа: " + num3 + " и " + num4);
 
-        boolean numDigit1 = num3 % 10 == num4 % 10;
-        boolean numDigit2 = (num3 / 10 % 10) == (num4 / 10 % 10);
-        boolean numDigit3 = num3 / 100 == num4 / 100;
+        boolean isNumDigit1 = num3 % 10 == num4 % 10;
+        boolean isNumDigit2 = (num3 / 10 % 10) == (num4 / 10 % 10);
+        boolean isNumDigit3 = num3 / 100 == num4 / 100;
 
-        if (numDigit1) {
-            System.out.println(num3 % 10 + " - первый разряд одинаковый");
-        }
-
-        if (numDigit2) {
-            System.out.println(num3 / 10 % 10 + " - второй разряд одинаковый");
-        }
-
-        if (numDigit3) {
-            System.out.println(num3 / 100 + " - третий разряд одинаковый");
-        }
-
-        if (!numDigit1 && !numDigit2 && !numDigit3) {
+        if (!isNumDigit1 && !isNumDigit2 && !isNumDigit3) {
             System.out.println("Равных чисел нет");
+        } else {
+            if (isNumDigit1) {
+                System.out.println(num3 % 10 + " - первый разряд одинаковый");
+            }
+            if (isNumDigit2) {
+                System.out.println(num3 / 10 % 10 + " - второй разряд одинаковый");
+        }
+            if (isNumDigit3) {
+                System.out.println(num3 / 100 + " - третий разряд одинаковый");
+            }
         }
 
         System.out.println("\n\n5.Определение символа по его коду\n");
@@ -102,7 +93,7 @@ public class IfElseStatementTheme {
             System.out.println("большая буква");
         } else if (symbol >= 'a' && symbol <= 'z') {
             System.out.println("маленькая буква");
-        } else if (symbol >= 0 && symbol <= 9) {
+        } else if (symbol >= '0' && symbol <= '9') {
             System.out.println("число");
         } else {
             System.out.println ("не буква и не число");
@@ -111,44 +102,37 @@ public class IfElseStatementTheme {
         System.out.println("\n\n6.Подсчет суммы вклада и начисленных банком %\n");
 
         int deposit = 300_000;
-        int interestRate1 = 5;
-        int interestRate2 = 7;
-        int interestRate3 = 10;
         int interest = 0;
 
         System.out.println("Сумма вклада: " + deposit);
 
         if (deposit < 100_000) {
-            interest = deposit * interestRate1 / 100;
-            System.out.println("Начисленный процент: " + interest);
+            interest = 5;
         } else if (deposit >= 100_000 && deposit < 300_000) {
-            interest = deposit * interestRate2 / 100;
-            System.out.println("Начисленный процент: " + interest);
+            interest = 7;
         } else {
-            interest = deposit * interestRate3 / 100;
-            System.out.println("Начисленный процент: " + interest);
+            interest = 10;
         }
+
+        System.out.println("Начисленный процент: " + deposit * interest / 100);
 
         System.out.println("\n\n7.Определение оценки по предметам\n");
 
         int historyGrade = 59;
         int programmingGrade = 91;
-        int historyMark = 0;
-        int programmingMark = 0;
+        int historyMark = 2;
+        int programmingMark = 2;
 
-        if (historyGrade <= 60) {
-            historyMark = 2;
-        } else if (historyGrade > 60 && historyGrade <= 73) {
+
+        if (historyGrade > 60 && historyGrade <= 73) {
             historyMark = 3;
         } else if (historyGrade > 73 && historyGrade <= 91) {
             historyMark = 4;
         } else {
             historyMark = 5;
         }
-
-        if (programmingGrade <= 60) {
-            programmingMark = 2;
-        } else if (programmingGrade > 60 && programmingGrade <= 73) {
+        
+        if (programmingGrade > 60 && programmingGrade <= 73) {
             programmingMark = 3;
         } else if (programmingGrade > 73 && programmingGrade <= 91) {
             programmingMark = 4;
