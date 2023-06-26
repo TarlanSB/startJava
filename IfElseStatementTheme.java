@@ -43,9 +43,9 @@ public class IfElseStatementTheme {
         int num2 = 25;
 
         if (num1 > num2) {
-            System.out.println("Первое число больше второго.");
-        } else if (num1 < num2) {
-            System.out.println("Второе число больше первого.");
+            System.out.println(num1 + " больше " + num2);
+        } else if (num2 > num1) {
+            System.out.println(num2 + " больше " + num1);
         } else {
             System.out.println("Числа равны.");
         }
@@ -54,14 +54,14 @@ public class IfElseStatementTheme {
 
         int num5 = 5;
 
-        String evenOrOdd = num5 % 2 == 0 ? " четное " : " нечетное"; 
-        String positiveOrNegative = num5 > 0 ? " - положительное" : " - отрицательное";
-
         if (num5 == 0) {
             System.out.println("Число является" + num5);
         } else {
+            String evenOrOdd = num5 % 2 == 0 ? " четное " : " нечетное"; 
+            String positiveOrNegative = num5 > 0 ? " - положительное" : " - отрицательное";
+
             System.out.println(num5 + positiveOrNegative + evenOrOdd + " число");
-        } 
+        }
 
         System.out.println("\n\n4.Поиск одинаковых цифр в числах\n");
 
@@ -70,20 +70,20 @@ public class IfElseStatementTheme {
 
         System.out.println("Исходные числа: " + num3 + " и " + num4);
 
-        boolean isNumDigit1 = num3 % 10 == num4 % 10;
-        boolean isNumDigit2 = (num3 / 10 % 10) == (num4 / 10 % 10);
-        boolean isNumDigit3 = num3 / 100 == num4 / 100;
+        boolean isEqualOnes = num3 % 10 == num4 % 10;
+        boolean isEqualTens = (num3 / 10 % 10) == (num4 / 10 % 10);
+        boolean isEqualHundreds = num3 / 100 == num4 / 100;
 
-        if (!isNumDigit1 && !isNumDigit2 && !isNumDigit3) {
+        if (!isEqualOnes && !isEqualTens && !isEqualHundreds) {
             System.out.println("Равных чисел нет");
         } else {
-            if (isNumDigit1) {
+            if (isEqualOnes) {
                 System.out.println(num3 % 10 + " - первый разряд одинаковый");
             }
-            if (isNumDigit2) {
+            if (isEqualTens) {
                 System.out.println(num3 / 10 % 10 + " - второй разряд одинаковый");
         }
-            if (isNumDigit3) {
+            if (isEqualHundreds) {
                 System.out.println(num3 / 100 + " - третий разряд одинаковый");
             }
         }
@@ -105,13 +105,11 @@ public class IfElseStatementTheme {
         System.out.println("\n\n6.Подсчет суммы вклада и начисленных банком %\n");
 
         int deposit = 300_000;
-        int interest = 0;
+        int interest = 5;
 
         System.out.println("Сумма вклада: " + deposit);
 
-        if (deposit < 100_000) {
-            interest = 5;
-        } else if (deposit >= 100_000 && deposit < 300_000) {
+        if (deposit >= 100_000 && deposit < 300_000) {
             interest = 7;
         } else {
             interest = 10;
