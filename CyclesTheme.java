@@ -41,11 +41,8 @@ public class CyclesTheme {
 
         System.out.println("Минимальное число = " + min + ", максимальное число = "+ max);
 
-        int intervalPoint = max - 1;
-
-        while (intervalPoint > min) {
-            System.out.print(intervalPoint);
-            intervalPoint--;
+        for (int i = max - 1; i > min; i--){
+            System.out.print(i);
         }
 
         System.out.println("\n\n\n3.Вывод реверсивного числа и суммы его цифр\n");
