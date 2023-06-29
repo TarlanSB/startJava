@@ -50,13 +50,13 @@ public class CyclesTheme {
 
         System.out.println("\n\n\n3.Вывод реверсивного числа и суммы его цифр\n");
 
-        int num6 =  1234;
+        int num =  1234;
         int sum = 0;
 
-        while (num6 > 0) {
-            int reverseNum = num6 % 10;
+        while (num > 0) {
+            int reverseNum = num % 10;
             sum += reverseNum;
-            num6 /= 10;
+            num /= 10;
 
             System.out.print(reverseNum);
         }
@@ -65,11 +65,11 @@ public class CyclesTheme {
 
         System.out.println("\n\n4.Вывод чисел на консоль в несколько строк\n");
 
-        int point4 = 1;
-        int point5 = 24;
+        int startPoint = 1;
+        int endPoint = 30;
         int counter1 = 0;
 
-        for (int i = point4; i < point5; i += 2) {
+        for (int i = startPoint; i < endPoint; i += 2) {
             System.out.printf("%5d", i);
             if (counter1 > 3) {
                 System.out.println();
@@ -78,7 +78,7 @@ public class CyclesTheme {
             counter1++;
         }
 
-        int missingNumZero = 5 - (point5 / 2) % 5;
+        int missingNumZero = 5 - (endPoint / 2) % 5;
 
         if (missingNumZero < 5) {
             for (int i = 0; i < missingNumZero; i++) {
@@ -153,16 +153,16 @@ public class CyclesTheme {
         System.out.printf("%n%n7.Отображение ASCII-символов" 
                 + "%n%n%11s%11s%n", "DECIMAL", "CHARACTER");
 
-        for (int i = 34; i < 48; i++) {
+        for (int i = 33; i < 48; i++) {
             char symbol = (char) i;
-            if (i % 2 == 0) {
+            if (i % 2 != 0) {
                    System.out.printf("%11s%11s%n", i, symbol);
             }
         }
 
-        for (int j = 97; j <= 122; j++) {
+        for (int j = 98; j < 123; j++) {
             char littleLetter = (char) j;
-            if (j % 2 != 0) {
+            if (j % 2 == 0) {
                 System.out.printf("%11s%11s%n", j, littleLetter);
             }
         }
@@ -187,35 +187,29 @@ public class CyclesTheme {
         System.out.println("\n\n9.Определение, является ли число счастливым\n");
 
         int num3 = 123456;
-        int firstThreeNum = num3 / 1000;
-        int firstSum = 0;
-
-        System.out.print("Сумма цифр " + firstThreeNum + " равна ");
+        int threeNum1 = num3 / 1000;
+        int sum3 = 0;
+        int copyThreeNum1 = threeNum1;
 
         for (int i = 0; i < 3; i++) {
-            firstSum += (firstThreeNum % 10);
-            firstThreeNum /= 10;
+            sum3 += (copyThreeNum1 % 10);
+            copyThreeNum1 /= 10;
         }
 
-        System.out.println(firstSum); 
+        System.out.println("Сумма цифр " + threeNum1 + " равна " + sum3);
 
-        int lastSum = 0;
-        int lastThreeNum = num3 % 1000;
+        int sum4 = 0;
+        int threeNum2 = num3 % 1000;
+        int copyThreeNum2 = threeNum2;
 
-        System.out.print("Сумма цифр " + lastThreeNum + " равна ");
-       
         for (int i = 0; i < 3; i++) {
-            lastSum += (lastThreeNum % 10);
-            lastThreeNum /= 10;
+            sum4 += (copyThreeNum2 % 10);
+            copyThreeNum2 /= 10;
         }
 
-        System.out.print(lastSum + "\nЧисло " + num3 + " является");
-
-        if (firstSum == lastSum) {
-            System.out.println (" счастливым");
-        } else {
-            System.out.println (" несчастливым");
-        }
+        System.out.println("Сумма цифр " + threeNum2 + " равна " + sum4
+                + "\nЧисло " + num3 + " является " 
+                + (sum3 == sum4 ? "счастливым" : "несчастливым"));
 
         System.out.printf("%n%n10.Вывод таблицы умножения Пифагора" 
                 + "%n%n%25s%n", "ТАБЛИЦА   ПИФАГОРА");
@@ -233,7 +227,7 @@ public class CyclesTheme {
                     System.out.printf("%n%s","----------------------------");
                 }
             }
-
+            
             System.out.println();
         }
     }
