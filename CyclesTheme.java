@@ -113,16 +113,16 @@ public class CyclesTheme {
             System.out.println();
         }
 
-        int num5 = 5;
+        int numOfRows = 5;
 
-        while (num5 > 0) {
-            int num6 = 0;
-            while (num6 < num5) {
+        while (numOfRows > 0) {
+            int numOfColumns = 0;
+            while (numOfColumns < numOfRows) {
                 System.out.print("#");
-                num6++;
+                numOfColumns++;
             }
             System.out.println();
-            num5--;
+            numOfRows--;
         }
 
         int counter2 = 0;
@@ -166,15 +166,15 @@ public class CyclesTheme {
         System.out.println("\n\n8.Проверка, является ли число палиндромом\n");
 
         int num9 = 1234321;
-        int digit1 = 0;
+        int reverseNum = 0;
 
         for (int i = num9; i > 0; i /= 10) {
-            digit1 = digit1 * 10 + i % 10;
+            reverseNum = reverseNum * 10 + i % 10;
         }
 
         System.out.printf("Число " + num9);
 
-        if (digit1 == num9) {
+        if (reverseNum == num9) {
             System.out.println(" является палиндромом");
         } else {
             System.out.println(" не является палиндромом");
@@ -206,9 +206,8 @@ public class CyclesTheme {
         
         System.out.printf("%25s%n", "ТАБЛИЦА   ПИФАГОРА");
 
-        System.out.printf("%4s%3d%3d%3d%3d%3d%3d%3d%3d%n%s%n"
-                , "|", 2, 3 ,4, 5, 6, 7, 8, 9
-                ,"----------------------------");
+        System.out.println("   |  2  3  4  5  6  7  8  9" + "\n" +
+        "----------------------------");
 
         for (int i = 2; i < 10; i++) {
             System.out.printf("%3d%s", i, "|");
