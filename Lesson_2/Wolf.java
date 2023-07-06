@@ -1,10 +1,10 @@
 public class Wolf {
 
-    char sex;
-    String name;
-    double weight;
-    int age;
-    String color;
+    private char sex;
+    private String name;
+    private double weight;
+    private int age;
+    private String color;
 
     public void move() {
         System.out.println("Идет");
@@ -24,6 +24,50 @@ public class Wolf {
 
     public void hunt() {
         System.out.println("Охотится");
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight (double weight) {
+        this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age > 8) {
+            System.out.println("Некорректный возраст");
+        } else {
+            this.age = age;
+        }
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
 }
