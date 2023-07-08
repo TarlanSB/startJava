@@ -12,8 +12,8 @@ public class Jaeger {
 
     public Jaeger() {}
 
-    public Jaeger(String modelName, String mark, String origin, double height, double weight
-            , int strength, int armor, boolean state, String weapon) {
+    public Jaeger(String modelName, String mark, String origin, double height, double weight,
+            int strength, int armor, boolean state, String weapon) {
         this.modelName = modelName;
         this.mark = mark;
         this.origin = origin;
