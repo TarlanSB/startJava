@@ -19,8 +19,8 @@ public class JaegerTest {
                 + "drift: " + jaeger1.drift(jaeger1.getState()) + "\n"
                 + jaeger1.useWeapon(jaeger1.getWeapon()) + "\n");
                 
-        Jaeger jaeger2 = new Jaeger("Crimson Typhoon", "Mark-4", "China", 76.2, 1.722, 8, 6
-                , false, "IB22 Plasmacaster");
+        Jaeger jaeger2 = new Jaeger("Crimson Typhoon", "Mark-4", "China", 76.2, 1.722, 8, 6,
+                false, "IB22 Plasmacaster");
 
         System.out.println("Jaeger2:\nmodel name: " + jaeger2.getModelName() + "\n"
                 + "mark: " + jaeger2.getMark() + "\norigin: " + jaeger2.getOrigin() + "\n"
