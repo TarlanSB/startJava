@@ -1,9 +1,8 @@
 public class Calculator {
 
-    int result;
-    boolean operationState = true;
-
     public void calculate(int inputNum1, int inputNum2, char mathOperation) {
+        int result;
+
         switch(mathOperation) {
             case '+' :
                 result = inputNum1 + inputNum2;
@@ -27,13 +26,10 @@ public class Calculator {
                 result = inputNum1 / inputNum2;
                 break;
             default :
-                operationState = false;
                 System.out.println("введенная мат. операция не поддерживается");
+                return;
         }
 
-        if (operationState) {
-            System.out.println(inputNum1 + " " + mathOperation + " " + inputNum2 + " = " + result);
-            operationState = true;
-        }
+        System.out.println(inputNum1 + " " + mathOperation + " " + inputNum2 + " = " + result);
     }
 }
