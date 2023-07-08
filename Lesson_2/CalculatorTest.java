@@ -7,23 +7,18 @@ public class CalculatorTest {
 
         Scanner scanner = new Scanner(System.in);
        
-        OUTER:
         while (true) {
             System.out.print("Введите первое число: ");
-
-            int scanNum1 = scanner.nextInt();
+            int num1 = scanner.nextInt();
 
             System.out.print("Введите знак математической операции: ");
-
             char mathOperator = scanner.next().charAt(0);
 
             System.out.print("Введите второе число: ");
+            int num2 = scanner.nextInt();
 
-            int scanNum2 = scanner.nextInt();
+            calculator.calculate(num1, num2, mathOperator);
 
-            calculator.calculate(scanNum1, scanNum2, mathOperator);
-
-            INNER:
             while (true) {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");
                 
@@ -31,11 +26,11 @@ public class CalculatorTest {
                 carryOn = carryOn.toLowerCase();
 
                 if (carryOn.equals("yes")) {
-                    continue OUTER;
+                    break;
                 } else if (carryOn.equals("no")) {
-                    break OUTER;
+                    return;
                 } else {
-                    continue INNER;
+                    continue;
                 }
             }
         }
