@@ -19,20 +19,17 @@ public class CalculatorTest {
 
             calculator.calculate(num1, num2, mathOperator);
 
-            while (true) {
+            String carryOn = "";
+            
+            do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-                
-                String carryOn = scanner.next();
-                carryOn = carryOn.toLowerCase();
+                carryOn = scanner.next().toLowerCase();
 
-                if (carryOn.equals("yes")) {
-                    break;
-                } else if (carryOn.equals("no")) {
+                if (carryOn.equals("no")) {
                     return;
-                } else {
-                    continue;
                 }
-            }
+
+             } while (!carryOn.equals("yes"));
         }
     }
 }
