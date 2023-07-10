@@ -16,10 +16,10 @@ public class GuessNumberTest {
         while (true) {
             game.start();
 
-            String carryOn = "";
+            String carryOn = ""; 
 
             do {
-                System.out.println("Хотите продолжить вычисления? [yes/no]: ");
+                System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 carryOn = scanner.next().toLowerCase();
 
                 if (carryOn.equals("no")) {
