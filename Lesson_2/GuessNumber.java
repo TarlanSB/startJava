@@ -31,11 +31,12 @@ public class GuessNumber {
             System.out.println(player2.getName() + " введите число");
             player2.setNumber(scanner.nextInt());
 
-            if (player2.getNumber() > guessedNum) {
-                System.out.println("Число " + player2.getNumber() + " больше того, что загадал компьютер");
-            } else if (player2.getNumber() == guessedNum) {
+            if (player2.getNumber() == guessedNum) {
                 System.out.println(player2.getName() + " Вы победили!");
                 break;
+            }
+            if (player2.getNumber() > guessedNum) {
+                System.out.println("Число " + player2.getNumber() + " больше того, что загадал компьютер");
             } else {
                 System.out.println("Число " + player2.getNumber() + " меньше того, что загадал компьютер");
             }
