@@ -6,8 +6,10 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
 
         Scanner scanner = new Scanner(System.in);
+
+        String answer = "";
        
-        while (true) {
+        while (!answer.equals("no")) {
             System.out.print("Введите первое число: ");
             int num1 = scanner.nextInt();
 
@@ -18,18 +20,11 @@ public class CalculatorTest {
             int num2 = scanner.nextInt();
 
             calculator.calculate(num1, num2, mathOperator);
-
-            String carryOn = "";
-            
+    
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-                carryOn = scanner.next().toLowerCase();
-
-                if (carryOn.equals("no")) {
-                    return;
-                }
-
-             } while (!carryOn.equals("yes"));
+                answer = scanner.next().toLowerCase();
+            } while (!answer.equals("yes") && !answer.equals("no"));
         }
     }
 }
