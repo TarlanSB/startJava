@@ -8,25 +8,19 @@ public class GuessNumberTest {
         Player player1 = new Player(scanner.next());
 
         System.out.println("Введите имя (второй игрок)");
-        scanner = new Scanner(System.in);
         Player player2 = new Player(scanner.next());
 
         GuessNumber game = new GuessNumber(player1, player2);
 
-        while (true) {
-            game.start();
+        String option = ""; 
 
-            String carryOn = ""; 
+        while (!option.equals("no")) {
+            game.start();
 
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-                carryOn = scanner.next().toLowerCase();
-
-                if (carryOn.equals("no")) {
-                    return;
-                }
-
-            } while (!carryOn.equals("yes"));
+                option = scanner.next().toLowerCase();
+            } while (!option.equals("yes") && !option.equals("no"));
         }
     }
 }
