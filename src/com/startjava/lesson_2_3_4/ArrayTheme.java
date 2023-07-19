@@ -3,20 +3,20 @@ package com.startjava.lesson_2_3_4;
 public class ArrayTheme {
 
     public static void main(String[] args) {
-        System.out.println("1.Р РµРІРµСЂСЃ Р·РЅР°С‡РµРЅРёР№ РјР°СЃСЃРёРІР°\n");
+        outputReverse();
+        productOfNumbers();
+        deleteElements();
+        outputStairs();
+        fillWithUniqueNumbers();
+    }
+
+    private static void outputReverse() {
+        System.out.println("1.Реверс значений массива\n");
         int[] numbers = {1, 7, 4, 5, 2, 6, 3};
-        System.out.print("Р”Рѕ СЂРµРІРµСЂСЃР°: ");
+        System.out.print("До реверса: ");
         output(numbers);
-        System.out.print("РџРѕСЃР»Рµ СЂРµРІРµСЂСЃР°: ");
+        System.out.print("После реверса: ");
         reverseArray(numbers);
-
-        System.out.println("\n2.Р’С‹РІРѕРґ РїСЂРѕРёР·РІРµРґРµРЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: \n");
-        int[] numbers2 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        productOfNumbers(numbers2);
-
-        System.out.println("\n3.РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: \n");
-        double[] numbers3 = new double[15];
-        deleteElement(numbers3);
     }
 
     private static void output(int[] array) {
@@ -26,58 +26,125 @@ public class ArrayTheme {
         System.out.println();
     }
 
-    private static void productOfNumbers(int[] array) {
-        StringBuilder stringbuilder = new StringBuilder();
-        int result = 1;
-        int length = array.length;
-        for (int i = 1; i < length - 1; i++) {
-            result *= (array[i] != length - 1 ? array[i] : 1);
-            stringbuilder.append(i).append(i != length - 2 ? " * " : " = ");
-        }
-        String string = new String(stringbuilder);
-        System.out.println(string + result);
-    }
-
     private static void reverseArray(int[] numbers) {
-        int length = numbers.length;
-        for (int i = 0; i < length / 2; i++) {
-            int tempArray = numbers[i];
-            numbers[i] = numbers[length - i - 1];
-            numbers[length - i - 1] = tempArray;
+        int maxIndex = numbers.length - 1;
+        for (int i = 0; i < numbers.length / 2; i++) {
+            int temp = numbers[i];
+            numbers[i] = numbers[maxIndex];
+            numbers[maxIndex] = temp;
+            maxIndex--;
         }
         output(numbers);
     }
 
-    private static void deleteElement(double[] numbers) {
-        int length = numbers.length;
+    private static void productOfNumbers() {
+        System.out.println("\n2.Вывод произведения элементов массива: \n");
+        int[] setOfPoints = new int[10];
+        int length = setOfPoints.length;
         for (int i = 0; i < length; i++) {
-            numbers[i] = Math.random();
+            setOfPoints[i] = i;
         }
-        System.out.println("РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ:");
-        outputThreeDecimalPlaces(numbers);
 
-        int indexMiddleArray = numbers.length / 2;
-        double valueMiddleArray = numbers[indexMiddleArray];
+        StringBuilder sb = new StringBuilder();
+        int result = 1;
+        for (int i = 1; i < length - 1; i++) {
+            result *= i;
+            sb.append(i).append(i != length - 2 ? " * " : " = ");
+        }
+        System.out.println(sb + "" + result);
+    }
+
+    private static void deleteElements() {
+        System.out.println("\n3.Удаление элементов массива: \n");
+        double[] points = new double[15];
+        int length = points.length;
+        for (int i = 0; i < length; i++) {
+            points[i] = Math.random();
+        }
+        System.out.println("Исходный массив:");
+        print(points);
+
+        double middleCellValue = points[points.length / 2];
         int count = 0;
         for (int i = 0; i < length; i++) {
-            if (numbers[i] > valueMiddleArray) {
-                numbers[i] = 0;
+            if (points[i] > middleCellValue) {
+                points[i] = 0;
                 count++;
             }
         }
-        System.out.println("РР·РјРµРЅРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ:");
-        outputThreeDecimalPlaces(numbers);
-
-        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±РЅСѓР»РµРЅРЅС‹С… СЏС‡РµРµРє: " + count);
+        System.out.println("Измененный массив:");
+        print(points);
+        System.out.println("Количество обнуленных ячеек: " + count);
     }
 
-    private static void outputThreeDecimalPlaces(double[] numbers) {
+    private static void print(double[] numbers) {
         int indexMiddleArray = numbers.length / 2 - 1;
         for (int i = 0; i < numbers.length; i++) {
             if (i == indexMiddleArray + 2) {
                 System.out.println();
             }
             System.out.printf("%.3f%s", numbers[i], " ");
+        }
+        System.out.println();
+    }
+
+    private static void outputStairs() {
+        System.out.println("\n4.Вывод элементов массива лесенкой\n");
+        char letter = 'A';
+        char[] letters = new char[26];
+
+        for (int i = 0; i < letters.length; i++) {
+            letters[i] = letter++;
+        }
+        for (int i = 0; i < letters.length; i++) {
+            int length = letters.length;
+            for (int j = 0; j <= i; j++) {
+                System.out.print(letters[--length]);
+            }
+            System.out.println();
+        }
+    }
+
+    private static void fillWithUniqueNumbers() {
+        System.out.println("\n5.Заполнение массива уникальными числами\n");
+        int[] points = new int[30];
+        int length = points.length;
+
+        for (int i = 0; i < length; ++i) {
+            boolean status;
+            do {
+                points[i] = (int) (60 + Math.random() * 40);
+                status = true;
+                for (int j = 0; j < i; ++j) {
+                    if ((points[i] == points[j])) {
+                        status = false;
+                        break;
+                    }
+                }
+            } while (!status);
+        }
+        sort(points);
+        output(points, 10);
+    }
+
+    private static void sort(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j + 1] < array[j]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    private static void output(int[] numbers, int amountNumbersInRow) {
+        for (int i = 0; i < numbers.length; i++) {
+            if (i % amountNumbersInRow == 0) {
+                System.out.println();
+            }
+            System.out.print(numbers[i] + " ");
         }
         System.out.println();
     }
