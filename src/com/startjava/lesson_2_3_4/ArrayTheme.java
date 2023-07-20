@@ -11,11 +11,11 @@ public class ArrayTheme {
     }
 
     private static void outputReverse() {
-        System.out.println("1.Реверс значений массива\n");
+        System.out.println("1.Р РµРІРµСЂСЃ Р·РЅР°С‡РµРЅРёР№ РјР°СЃСЃРёРІР°\n");
         int[] numbers = {1, 7, 4, 5, 2, 6, 3};
-        System.out.print("До реверса: ");
+        System.out.print("Р”Рѕ СЂРµРІРµСЂСЃР°: ");
         output(numbers);
-        System.out.print("После реверса: ");
+        System.out.print("РџРѕСЃР»Рµ СЂРµРІРµСЂСЃР°: ");
         reverseArray(numbers);
     }
 
@@ -38,7 +38,7 @@ public class ArrayTheme {
     }
 
     private static void productOfNumbers() {
-        System.out.println("\n2.Вывод произведения элементов массива: \n");
+        System.out.println("\n2.Р’С‹РІРѕРґ РїСЂРѕРёР·РІРµРґРµРЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: \n");
         int[] setOfPoints = new int[10];
         int length = setOfPoints.length;
         for (int i = 0; i < length; i++) {
@@ -55,13 +55,13 @@ public class ArrayTheme {
     }
 
     private static void deleteElements() {
-        System.out.println("\n3.Удаление элементов массива: \n");
+        System.out.println("\n3.РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°: \n");
         double[] points = new double[15];
         int length = points.length;
         for (int i = 0; i < length; i++) {
             points[i] = Math.random();
         }
-        System.out.println("Исходный массив:");
+        System.out.println("РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ:");
         print(points);
 
         double middleCellValue = points[points.length / 2];
@@ -72,9 +72,9 @@ public class ArrayTheme {
                 count++;
             }
         }
-        System.out.println("Измененный массив:");
+        System.out.println("РР·РјРµРЅРµРЅРЅС‹Р№ РјР°СЃСЃРёРІ:");
         print(points);
-        System.out.println("Количество обнуленных ячеек: " + count);
+        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РѕР±РЅСѓР»РµРЅРЅС‹С… СЏС‡РµРµРє: " + count);
     }
 
     private static void print(double[] numbers) {
@@ -89,7 +89,7 @@ public class ArrayTheme {
     }
 
     private static void outputStairs() {
-        System.out.println("\n4.Вывод элементов массива лесенкой\n");
+        System.out.println("\n4.Р’С‹РІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° Р»РµСЃРµРЅРєРѕР№\n");
         char letter = 'A';
         char[] letters = new char[26];
 
@@ -106,7 +106,7 @@ public class ArrayTheme {
     }
 
     private static void fillWithUniqueNumbers() {
-        System.out.println("\n5.Заполнение массива уникальными числами\n");
+        System.out.println("\n5.Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° СѓРЅРёРєР°Р»СЊРЅС‹РјРё С‡РёСЃР»Р°РјРё\n");
         int[] points = new int[30];
         int length = points.length;
 
