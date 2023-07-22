@@ -2,36 +2,58 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    public void calculate(int inputNum1, int inputNum2, char mathOperation) {
-        int result;
+    private String sign;
+    private int variables1;
+    private int variables2;
+    private double result;
 
-        switch(mathOperation) {
-            case '+' :
-                result = inputNum1 + inputNum2;
+    public double calculate(String mathExpression) {
+        String[] varsOrSign = mathExpression.split(" ");
+        sign = varsOrSign[1];
+        variables1 = Integer.parseInt(varsOrSign[0]);
+        variables2 = Integer.parseInt(varsOrSign[2]);
+        switch (sign) {
+            case "+":
+                result = variables1 + variables2;
                 break;
-            case '-' :
-                result = inputNum1 - inputNum2;
+            case "-":
+                result = variables1 - variables2;
                 break;
-            case '*' :
-                result = inputNum1 * inputNum2;
+            case "*":
+                result = variables1 * variables2;
                 break;
-            case '^' :
-                result = inputNum1;
-                for (int i = 1; i < inputNum2; i++) {
-                    result *= inputNum1;
-                }
+            case "^":
+                result = Math.pow(variables1, variables2);
                 break;
-            case '%' :
-                result = inputNum1 % inputNum2;
+            case "%":
+                result = variables1 % variables2;
                 break;
-            case '/' :
-                result = inputNum1 / inputNum2;
+            case "/":
+                result = (double) variables1 / variables2;
                 break;
-            default :
-                System.out.println("введенная мат. операция не поддерживается");
-                return;
+            default:
+                result = Double.MIN_VALUE;
+                break;
         }
+        return result;
+    }
 
-        System.out.println(inputNum1 + " " + mathOperation + " " + inputNum2 + " = " + result);
+    public void output() {
+        if (result != Double.MIN_VALUE) {
+            double copyResult = result;
+            int sumFractionalPart = 0;
+            String stringResult = String.format("%.0f", result);
+            for (int i = 0; i < 3; i++) {
+                copyResult *= 10;
+                sumFractionalPart += (int) (copyResult % 10);
+                if (sumFractionalPart > 0) {
+                    stringResult = String.format("%.3f", result);
+                    break;
+                }
+            }
+            System.out.println(variables1 + " " + sign + " " + variables2 + " = " + stringResult);
+        } else {
+            System.out.println("Ошибка: знак " + sign + " не поддерживается");
+        }
     }
 }
