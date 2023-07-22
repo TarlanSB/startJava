@@ -3,30 +3,23 @@ package com.startjava.lesson_2_3_4;
 public class ArrayTheme {
 
     public static void main(String[] args) {
-        outputReverse();
+        reverseArray();
         productOfNumbers();
         deleteElements();
         outputStairs();
         fillWithUniqueNumbers();
     }
 
-    private static void outputReverse() {
+    private static void reverseArray() {
         System.out.println("1.Реверс значений массива\n");
         int[] numbers = {1, 7, 4, 5, 2, 6, 3};
         System.out.print("До реверса: ");
         output(numbers);
         System.out.print("После реверса: ");
-        reverseArray(numbers);
+        reverse(numbers);
     }
 
-    private static void output(int[] array) {
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
-        System.out.println();
-    }
-
-    private static void reverseArray(int[] numbers) {
+    private static void reverse(int[] numbers) {
         int maxIndex = numbers.length - 1;
         for (int i = 0; i < numbers.length / 2; i++) {
             int temp = numbers[i];
@@ -37,12 +30,19 @@ public class ArrayTheme {
         output(numbers);
     }
 
+    private static void output(int[] array) {
+        for (int number : array) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+    }
+
     private static void productOfNumbers() {
         System.out.println("\n2.Вывод произведения элементов массива: \n");
-        int[] setOfPoints = new int[10];
-        int length = setOfPoints.length;
+        int[] multipliers = new int[10];
+        int length = multipliers.length;
         for (int i = 0; i < length; i++) {
-            setOfPoints[i] = i;
+            multipliers[i] = i;
         }
 
         StringBuilder sb = new StringBuilder();
@@ -56,24 +56,24 @@ public class ArrayTheme {
 
     private static void deleteElements() {
         System.out.println("\n3.Удаление элементов массива: \n");
-        double[] points = new double[15];
-        int length = points.length;
+        double[] randomNumbers = new double[15];
+        int length = randomNumbers.length;
         for (int i = 0; i < length; i++) {
-            points[i] = Math.random();
+            randomNumbers[i] = Math.random();
         }
         System.out.println("Исходный массив:");
-        print(points);
+        print(randomNumbers);
 
-        double middleCellValue = points[points.length / 2];
+        double middleCellValue = randomNumbers[randomNumbers.length / 2];
         int count = 0;
         for (int i = 0; i < length; i++) {
-            if (points[i] > middleCellValue) {
-                points[i] = 0;
+            if (randomNumbers[i] > middleCellValue) {
+                randomNumbers[i] = 0;
                 count++;
             }
         }
         System.out.println("Измененный массив:");
-        print(points);
+        print(randomNumbers);
         System.out.println("Количество обнуленных ячеек: " + count);
     }
 
@@ -107,24 +107,24 @@ public class ArrayTheme {
 
     private static void fillWithUniqueNumbers() {
         System.out.println("\n5.Заполнение массива уникальными числами\n");
-        int[] points = new int[30];
-        int length = points.length;
+        int[] uniqueNumbers = new int[30];
+        int length = uniqueNumbers.length;
 
-        for (int i = 0; i < length; ++i) {
+        for (int i = 0; i < length; i++) {
             boolean status;
             do {
-                points[i] = (int) (60 + Math.random() * 40);
+                uniqueNumbers[i] = (int) (60 + Math.random() * 40);
                 status = true;
-                for (int j = 0; j < i; ++j) {
-                    if ((points[i] == points[j])) {
+                for (int j = 0; j < i; j++) {
+                    if ((uniqueNumbers[i] == uniqueNumbers[j])) {
                         status = false;
                         break;
                     }
                 }
             } while (!status);
         }
-        sort(points);
-        output(points, 10);
+        sort(uniqueNumbers);
+        output(uniqueNumbers, 10);
     }
 
     private static void sort(int[] array) {
