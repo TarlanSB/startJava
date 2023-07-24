@@ -2,55 +2,27 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    private String sign;
-    private int firstNumber;
-    private int secondNumber;
-
-    public String getSign() {
-        return sign;
-    }
-
-    public int getFirstNumber() {
-        return firstNumber;
-    }
-
-    public int getSecondNumber() {
-        return secondNumber;
-    }
-
-    public Calculator() {
-    }
-
     public double calculate(String mathExpression) {
-        String[] compositionOfExpression = mathExpression.split(" ");
-        sign = compositionOfExpression[1];
-        firstNumber = Integer.parseInt(compositionOfExpression[0]);
-        secondNumber = Integer.parseInt(compositionOfExpression[2]);
-        double result;
+        String[] elements = mathExpression.split(" ");
+        String sign = elements[1];
+        int firstNumber = Integer.parseInt(elements[0]);
+        int secondNumber = Integer.parseInt(elements[2]);
         switch (sign) {
             case "+":
-                result = firstNumber + secondNumber;
-                break;
+                return firstNumber + secondNumber;
             case "-":
-                result = firstNumber - secondNumber;
-                break;
+                return firstNumber - secondNumber;
             case "*":
-                result = firstNumber * secondNumber;
-                break;
+                return firstNumber * secondNumber;
             case "^":
-                result = Math.pow(firstNumber, secondNumber);
-                break;
+                return Math.pow(firstNumber, secondNumber);
             case "%":
-                result = firstNumber % secondNumber;
-                break;
+                return firstNumber % secondNumber;
             case "/":
-                result = (double) firstNumber / secondNumber;
-                break;
+                return (double) firstNumber / secondNumber;
             default:
                 System.out.println("Ошибка: знак " + sign + " не поддерживается");
-                result = Double.MIN_VALUE;
-                break;
+                return Double.MIN_VALUE;
         }
-        return result;
     }
 }
