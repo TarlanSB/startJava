@@ -5,26 +5,28 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
+    static NumberFormat nf = NumberFormat.getInstance();
+
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         String answer = "yes";
-        NumberFormat nf = NumberFormat.getInstance();
+
         do {
             if (answer.equals("yes")) {
                 System.out.print("Введите математическое выражение в формате: 2 ^ 10 ");
                 String mathExpression = scanner.nextLine();
-                double result = calculator.calculate(mathExpression);
-                if (result != Double.MIN_VALUE) {
-                    System.out.println(calculator.getFirstNumber() + " " + calculator.getSign() + " "
-                            + calculator.getSecondNumber() + " = " + nf.format(result));
-                }
+                output(calculator, mathExpression);
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.nextLine().toLowerCase();
-            if (answer.equals("no")) {
-                break;
-            }
         } while (!answer.equals("no"));
+    }
+
+    static void output(Calculator calculator, String mathExpression) {
+        double result = calculator.calculate(mathExpression);
+        if (result != Double.MIN_VALUE) {
+            System.out.println(mathExpression + " = " + nf.format(result));
+        }
     }
 }
