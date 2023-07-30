@@ -4,9 +4,10 @@ import java.util.Arrays;
 
 public class Player {
 
-    private String name;
-
-    private int[] storage = new int[10];
+    private final String name;
+    int[] storage = new int[10];
+    private int number;
+    int indexStorage;
 
     public Player(String name) {
         this.name = name;
@@ -17,11 +18,22 @@ public class Player {
     }
 
     public int[] getStorage() {
-        return Arrays.copyOf(storage, storage.length);
+        if (storage[indexStorage] != 0) {
+            return Arrays.copyOf(storage, indexStorage + 1);
+        } else {
+            return Arrays.copyOf(storage, indexStorage);
+        }
     }
 
-    public void setStorage(int index, int value) {
-        storage[index] = value;
+    public int getNumber() {
+        return number;
+    }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void addNum(int index, int num) {
+        storage[index] = num;
     }
 }
