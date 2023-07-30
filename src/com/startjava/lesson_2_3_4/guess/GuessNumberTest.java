@@ -3,16 +3,16 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    
+
     public static void main(String[] args) {
         System.out.println("Введите имя (первый игрок)");
         Scanner scanner = new Scanner(System.in);
-        String player1 = scanner.next();
+        String name1 = scanner.next();
 
         System.out.println("Введите имя (второй игрок)");
-        String player2 = scanner.next();
+        String name2 = scanner.next();
 
-        GuessNumber game = new GuessNumber(player1, player2);
+        GuessNumber game = new GuessNumber(name1, name2);
         String option = "yes";
 
         do {
@@ -21,6 +21,9 @@ public class GuessNumberTest {
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             option = scanner.nextLine().toLowerCase();
+            if (option.equals("yes")) {
+                game.clean();
+            }
         } while (!option.equals("no"));
     }
 }
