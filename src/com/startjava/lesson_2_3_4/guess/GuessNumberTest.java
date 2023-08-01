@@ -21,9 +21,7 @@ public class GuessNumberTest {
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             option = scanner.nextLine().toLowerCase();
-            if (option.equals("yes")) {
-                game.clean();
-            }
+
         } while (!option.equals("no"));
     }
 }
