@@ -5,9 +5,8 @@ import java.util.Arrays;
 public class Player {
 
     private final String name;
-    int[] storage = new int[10];
-    private int number;
-    int indexStorage;
+    private final int[] storage = new int[10];
+    private int attempt;
 
     public Player(String name) {
         this.name = name;
@@ -18,22 +17,19 @@ public class Player {
     }
 
     public int[] getStorage() {
-        if (storage[indexStorage] != 0) {
-            return Arrays.copyOf(storage, indexStorage + 1);
-        } else {
-            return Arrays.copyOf(storage, indexStorage);
-        }
+        return Arrays.copyOf(storage, attempt + 1);
     }
 
-    public int getNumber() {
-        return number;
+    public int getAttempt() {
+        return attempt;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
     }
 
-    public void addNum(int index, int num) {
-        storage[index] = num;
+    public void addNum(int num) {
+        storage[attempt] = num;
     }
+
 }
