@@ -1,6 +1,5 @@
 package com.startjava.lesson_2_3_4.guess;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -18,62 +17,44 @@ public class GuessNumber {
         int guessedNum = 1 + (int) (Math.random() * 100);
 
         while (player1.getAttempt() < 10) {
-            if (compareNum(player1, guessedNum)) {
+            if (compareNums(player1, guessedNum)) {
                 break;
             }
-            if (compareNum(player2, guessedNum)) {
+            if (compareNums(player2, guessedNum)) {
                 break;
             }
         }
         output(player1, player2);
-        clean(player1, player2);
     }
 
-    public boolean compareNum(Player player, int guessedNum) {
-
-        inputNum(player);
-        if (namedNum(player) == guessedNum) {
+    public boolean compareNums(Player player, int guessedNum) {
+        int num = inputNum(player);
+        if (num == guessedNum) {
             System.out.println("Игрок " + player.getName() + " угадал " + guessedNum
-                    + " с " + (player.getAttempt() + 1) + " попытки");
+                    + " с " + (player.getAttempt()) + " попытки");
             return true;
         }
-        if (namedNum(player) > guessedNum) {
-            System.out.println("Число " + namedNum(player)
-                    + " больше того, что загадал компьютер");
+        if (num > guessedNum) {
+            System.out.println("Число " + num + " больше того, что загадал компьютер");
         } else {
-            System.out.println("Число " + namedNum(player)
-                    + " меньше того, что загадал компьютер");
+            System.out.println("Число " + num + " меньше того, что загадал компьютер");
         }
-
-        player.setAttempt(player.getAttempt() + 1);
         return false;
     }
 
-    public void inputNum(Player player) {
+    public int inputNum(Player player) {
         System.out.println(player.getName() + " введите число");
-        player.addNum(scanner.nextInt());
-    }
-
-    public int namedNum(Player player) {
-        return player.getStorage()[player.getAttempt()];
+        return player.addNum(scanner.nextInt());
     }
 
     public void output(Player... players) {
         for (Player player : players) {
             System.out.print("Названные числа игрока " + player.getName() + ":");
-            for (int i = 0; i < player.getStorage().length; i++) {
-                if (player.getStorage()[i] != 0) {
-                    System.out.print(" " + player.getStorage()[i]);
-                }
+            for (int element : player.getStorage()) {
+                System.out.print(" " + element);
             }
             System.out.println();
-        }
-    }
-
-    public void clean(Player... players) {
-        for (Player player : players) {
-            Arrays.fill(player.getStorage(), 0, player.getAttempt() + 1, 0);
-            player.setAttempt(0);
+            player.clean();
         }
     }
 }
