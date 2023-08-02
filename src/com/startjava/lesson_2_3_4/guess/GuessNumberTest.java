@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class GuessNumberTest {
 
     public static void main(String[] args) {
-        System.out.println("Введите имя (первый игрок)");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите имя (первый игрок)");
         String name1 = scanner.next();
 
         System.out.println("Введите имя (второй игрок)");
@@ -21,7 +21,6 @@ public class GuessNumberTest {
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             option = scanner.nextLine().toLowerCase();
-
         } while (!option.equals("no"));
     }
 }
