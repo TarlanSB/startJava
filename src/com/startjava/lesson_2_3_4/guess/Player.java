@@ -17,19 +17,20 @@ public class Player {
     }
 
     public int[] getStorage() {
-        return Arrays.copyOf(storage, attempt + 1);
+        return Arrays.copyOf(storage, attempt);
+    }
+
+    public int addNum(int num) {
+        return storage[attempt++] = num;
     }
 
     public int getAttempt() {
         return attempt;
     }
 
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
+    public void clean() {
+        Arrays.fill(storage, 0, attempt, 0);
+        attempt = 0;
     }
-
-    public void addNum(int num) {
-        storage[attempt] = num;
-    }
-
 }
+
