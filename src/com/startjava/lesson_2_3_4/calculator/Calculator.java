@@ -8,18 +8,12 @@ public class Calculator {
 
         try {
             if (elements.length > 3) {
-                throw new ArrayIndexOutOfBoundsException("Длина выражение больше, чем требуется " +
-                        "- Математическое выражение должно быть в формате: \"2 ^ 10\"");
+                throw new ArrayIndexOutOfBoundsException();
             }
             int firstNumber = Integer.parseInt(elements[0]);
             String sign = elements[1];
-            String lastNum = String.valueOf(elements.length);
-            System.out.println(lastNum);
             int secondNumber = Integer.parseInt(elements[2]);
-            boolean isCorrectNumbers = state(firstNumber, secondNumber);
-            if (!isCorrectNumbers) {
-                throw new NumberFormatException("Недопустимы ввод - числа должны быть от 1 до 100 включительно");
-            }
+            checkNumbers(firstNumber, secondNumber);
 
             return result = switch (sign) {
                 case "+" -> firstNumber + secondNumber;
@@ -33,15 +27,21 @@ public class Calculator {
                     yield Double.MIN_VALUE;
                 }
             };
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Математическое выражение должно быть в формате: 2 ^ 10");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Длина выражение больше, чем требуется - " +
+                    "математическое выражение должно быть в формате: \"2 ^ 10\"");
         } catch (NumberFormatException e) {
             System.out.println("Недопустимы ввод - числа должны быть от 1 до 100 включительно");
         }
         return result;
     }
 
-    public static boolean state(int number1, int number2) {
-        return (number1 > 0 && number1 <= 100) && (number2 > 0 && number2 <= 100);
+    public static boolean checkNumbers(int number1, int number2) {
+        if ((number1 > 0 && number1 <= 100) && (number2 > 0 && number2 <= 100)) {
+            return true;
+        } else {
+            throw new NumberFormatException();
+        }
     }
 }
+
