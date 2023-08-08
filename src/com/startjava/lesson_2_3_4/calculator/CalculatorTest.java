@@ -8,23 +8,22 @@ public class CalculatorTest {
     static NumberFormat nf = NumberFormat.getInstance();
 
     public static void main(String[] args) {
-        //Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         String answer = "yes";
 
         do {
             if (answer.equals("yes")) {
                 System.out.print("Введите математическое выражение в формате: 2 ^ 10 ");
-                output(scanner.nextLine());
+                String mathExpression = scanner.nextLine();
+                double result = Calculator.calculate(mathExpression);
+                output(mathExpression, result);
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]: ");
             answer = scanner.nextLine().toLowerCase();
         } while (!answer.equals("no"));
     }
 
-    static void output(String mathExpression) {
-
-        double result = Calculator.calculate(mathExpression);
+    static void output(String mathExpression, double result) {
         System.out.println((result > Double.MIN_VALUE) ? mathExpression + " = " + nf.format(result) : "");
     }
 }
