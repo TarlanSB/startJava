@@ -24,6 +24,6 @@ public class CalculatorTest {
     }
 
     static void output(String mathExpression, double result) {
-        System.out.println((result > Double.MIN_VALUE) ? mathExpression + " = " + nf.format(result) : "");
+        System.out.println((result != Double.MIN_VALUE) ? mathExpression + " = " + nf.format(result) : "");
     }
 }
