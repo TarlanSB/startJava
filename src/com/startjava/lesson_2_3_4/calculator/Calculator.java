@@ -6,12 +6,13 @@ public class Calculator {
         String[] elements = expression.split(" ");
         double result = Double.MIN_VALUE;
 
+        if (elements.length > 3) {
+            System.out.println("Длина выражение больше, чем требуется - " +
+                    "математическое выражение должно быть в формате: \"2 ^ 10\"");
+            return Double.MIN_VALUE;
+        }
+
         try {
-            if (elements.length > 3) {
-                System.out.println("Длина выражение больше, чем требуется - " +
-                        "математическое выражение должно быть в формате: \"2 ^ 10\"");
-                return Double.MIN_VALUE;
-            }
             int firstNumber = Integer.parseInt(elements[0]);
             String sign = elements[1];
             int secondNumber = Integer.parseInt(elements[2]);
