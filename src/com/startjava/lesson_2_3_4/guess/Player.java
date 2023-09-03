@@ -28,7 +28,7 @@ public class Player {
         return attempt;
     }
 
-    public void clean() {
+    public void clear() {
         Arrays.fill(storage, 0, attempt, 0);
         attempt = 0;
     }
