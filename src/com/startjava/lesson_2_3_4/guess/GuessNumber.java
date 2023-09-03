@@ -34,11 +34,10 @@ public class GuessNumber {
                     + " с " + (player.getAttempt()) + " попытки");
             return true;
         }
-        if (num > guessedNum) {
-            System.out.println("Число " + num + " больше того, что загадал компьютер");
-        } else {
-            System.out.println("Число " + num + " меньше того, что загадал компьютер");
-        }
+
+        System.out.println("Число " + num + ((num > guessedNum) ? " больше того, что загадал компьютер"
+                : " меньше того, что загадал компьютер"));
+
         return false;
     }
 
@@ -54,7 +53,7 @@ public class GuessNumber {
                 System.out.print(" " + element);
             }
             System.out.println();
-            player.clean();
+            player.clear();
         }
     }
 }
