@@ -15,7 +15,6 @@ SELECT *
  WHERE mark IN ('Mark-1', 'Mark-4')
  ORDER BY model_name ASC;
 
-
 \echo Отображение всех роботов, кроме Mark-1 и Mark-4
 SELECT *
   FROM jaegers
@@ -31,7 +30,7 @@ SELECT *
 SELECT *
   FROM jaegers
  WHERE launch = (SELECT MIN(launch)
-                  FROM jaegers)
+                   FROM jaegers)
  ORDER BY model_name ASC;
 
 \echo Отображение роботов, которые уничтожили больше всех kaiju
@@ -42,7 +41,7 @@ SELECT *
  ORDER BY model_name ASC;
 
 \echo Отображение среднего веса роботов
-SELECT AVG(weight)
+SELECT ROUND(AVG(weight), 3)
   FROM jaegers;
 
 \echo Увеличение на единицу количество уничтоженных kaiju у роботов, которые до сих пор не разрушены, а затем отображение таблицы
