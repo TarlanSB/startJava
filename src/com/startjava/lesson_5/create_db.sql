@@ -7,7 +7,7 @@ CREATE TABLE jaegers (
     model_name VARCHAR(50),
     mark       VARCHAR(10),
     height     REAL,
-    weight     REAL,
+    weight     NUMERIC,
     status     VARCHAR(9),
     origin     VARCHAR(50),
     launch     DATE,
